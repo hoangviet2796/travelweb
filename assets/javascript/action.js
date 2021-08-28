@@ -1,5 +1,5 @@
 //modal user
-const userBtn = document.querySelector('.js-user')
+const userBtns = document.querySelectorAll('.js-user')
 const modal = document.querySelector('.js-modal')
 const modalClose =document.querySelector('.js-modal-close')
 const modalBody = document.querySelector('.js-modal-body')
@@ -12,7 +12,9 @@ function hideUsermodal() {
     modal.classList.remove('open')
 }
 
-userBtn.addEventListener('click',showUsermodal)
+for (userBtn of userBtns) {
+  userBtn.addEventListener('click',showUsermodal)
+}
 
 modalClose.addEventListener('click',hideUsermodal)
 
@@ -148,25 +150,28 @@ dot3.addEventListener('click',function(){
 // top btn
 const topBtn = document.querySelector('.js-top-btn')
 
-window.onscroll = function() {scrollFunction()};
+// window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-    topBtn.style.opacity = 1;
-  } else {
-    topBtn.style.opacity = 0;
-  }
-}
+// function scrollFunction() {
+//   if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+    
+//   } else {
+    
+//   }
+// }
 
 // nav bar
+
 const header = document.querySelector('.js-header')
 
 window.onscroll = function() {scrollheader()};
 
 function scrollheader() {
   if (document.body.scrollTop > 46 || document.documentElement.scrollTop > 46) {
+    topBtn.style.opacity = 1;
     header.style.top = "0";
   } else {
     header.style.top = "46px";
+    topBtn.style.opacity = 0;
   }
 }
